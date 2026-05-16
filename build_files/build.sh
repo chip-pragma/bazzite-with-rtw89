@@ -12,6 +12,19 @@ set -ouex pipefail
 # this installs a package from fedora repos
 dnf5 install -y tmux 
 
+### rtw69 (morrownr/rtw89)
+# requirements
+dnf5 install -y make gcc kernel-devel kernel-headers 
+# clone repo
+git clone https://github.com/morrownr/rtw89
+cd rtw89
+# build & install
+make clean modules && sudo make install
+sudo make install_fw
+cp -v rtw89.conf /etc/modprobe.d/
+# go back
+cd ..
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
