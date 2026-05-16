@@ -15,14 +15,16 @@ dnf5 install -y tmux
 ### rtw69 (morrownr/rtw89)
 # requirements (already installed)
 # dnf5 install -y make gcc kernel-devel kernel-headers 
+dnf5 install -y dkms 
 # clone repo
 git clone https://github.com/morrownr/rtw89
 cd rtw89
+# clean up
+sudo make cleanup_target_system
 # build & install
-# skip `make clean`
-make modules
-make install
+dkms install $(pwd)
 make install_fw
+# configurate
 cp -v rtw89.conf /etc/modprobe.d/
 # go back
 cd ..
