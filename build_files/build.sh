@@ -20,7 +20,7 @@ dnf5 install -y dkms
 git clone https://github.com/morrownr/rtw89
 cd rtw89
 # clean up
-sudo make cleanup_target_system
+# make cleanup_target_system
 # build & install
 dkms install $(pwd)
 make install_fw
