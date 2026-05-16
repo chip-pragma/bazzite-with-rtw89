@@ -19,7 +19,8 @@ dnf5 install -y tmux
 git clone https://github.com/morrownr/rtw89
 cd rtw89
 # build & install
-# skip `make clean modules`
+# skip `make clean`
+make modules
 make install
 make install_fw
 cp -v rtw89.conf /etc/modprobe.d/
