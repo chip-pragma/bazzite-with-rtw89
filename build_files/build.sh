@@ -13,17 +13,19 @@ set -ouex pipefail
 dnf5 install -y tmux 
 
 ### rtw69 (morrownr/rtw89)
-# requirements
-dnf5 install -y make gcc kernel-devel kernel-headers 
+# requirements (already installed)
+# dnf5 install -y make gcc kernel-devel kernel-headers 
 # clone repo
 git clone https://github.com/morrownr/rtw89
 cd rtw89
 # build & install
-make clean modules && sudo make install
-sudo make install_fw
+# skip `make clean modules`
+make install
+make install_fw
 cp -v rtw89.conf /etc/modprobe.d/
 # go back
 cd ..
+rm -rf rtw89
 
 # Use a COPR Example:
 #
