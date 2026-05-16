@@ -21,7 +21,7 @@ set -ouex pipefail
 git clone https://github.com/morrownr/rtw89
 cd rtw89
 # prepare
-export KVER="$(rpm -q "${KERNEL_NAME}" --queryformat '%{VERSION}-%{RELEASE}.%{ARCH}')"
+export KVER="$(rpm -q 'kernel' --queryformat '%{VERSION}-%{RELEASE}.%{ARCH}')"
 # clean up
 make cleanup_target_system
 make clean 
