@@ -12,13 +12,13 @@ set -ouex pipefail
 # this installs a package from fedora repos
 # dnf5 install -y tmux 
 
-### rtw69 (morrownr/rtw89)
+### rtw89 (morrownr/rtw89)
 
 # requirements (already installed)
 # dnf5 install -y make gcc kernel-devel kernel-headers
 
-# clone repo
-git clone https://github.com/morrownr/rtw89
+# clone repo (forked & synced)
+git clone https://github.com/chip-pragma/rtw89.git
 cd rtw89
 # prepare
 export KVER="$(rpm -q 'kernel' --queryformat '%{VERSION}-%{RELEASE}.%{ARCH}')"
@@ -31,7 +31,7 @@ make install
 make install_fw
 # configurate
 cp -v rtw89.conf /etc/modprobe.d/
-# go back
+# cleanup
 cd ..
 rm -rf rtw89
 
